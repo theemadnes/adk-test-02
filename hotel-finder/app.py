@@ -79,7 +79,7 @@ async def find_closest_location_on_grid(
 # To run this application:
 # 1. Save it as a Python file (e.g., main_grid.py).
 # 2. Install FastAPI, Uvicorn and Pydantic: pip install fastapi uvicorn pydantic
-# 3. Run Uvicorn: uvicorn main_grid:app --reload
+# 3. Run Uvicorn: uvicorn app:app --reload
 # 4. Open your browser and go to: http://127.0.0.1:8000/find_closest_location_on_grid/?x=YOUR_X&y=YOUR_Y
-#    For example: http://127.0.0.1:8000/find_closest_location_on_grid/?x=30&y=40
+#    For example: curl "http://127.0.0.1:8000/find_closest_location_on_grid/?x=30&y=40"
 #    You can also access the auto-generated API docs at http://127.0.0.1:8000/docs
