@@ -27,13 +27,13 @@ app = FastAPI(
 # Sample list of named locations on the grid
 # Coordinates are integers between 0 and 99.
 locations_db: List[GridLocation] = [
-    GridLocation(name="Central Hub", x=50, y=50),
-    GridLocation(name="North Outpost", x=50, y=95),
-    GridLocation(name="East Market", x=90, y=50),
-    GridLocation(name="South West Corner", x=10, y=10),
-    GridLocation(name="Library", x=25, y=75),
-    GridLocation(name="Cafe", x=70, y=30),
-    GridLocation(name="Park Entrance", x=5, y=40),
+    GridLocation(name="Central Hub Hostel", x=50, y=50),
+    GridLocation(name="North Outpost BnB", x=50, y=95),
+    GridLocation(name="East Market Hotel", x=90, y=50),
+    GridLocation(name="South West Inn", x=10, y=10),
+    GridLocation(name="Library Properties", x=25, y=75),
+    GridLocation(name="Cafe Hotel", x=70, y=30),
+    GridLocation(name="Park Entrance Residences", x=5, y=40),
 ]
 
 def euclidean_distance(coord1: Tuple[int, int], coord2: Tuple[int, int]) -> float:
