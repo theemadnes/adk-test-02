@@ -40,6 +40,16 @@ def euclidean_distance(coord1: Tuple[int, int], coord2: Tuple[int, int]) -> floa
     """Calculates the Euclidean distance between two grid coordinates."""
     return math.sqrt((coord1[0] - coord2[0])**2 + (coord1[1] - coord2[1])**2)
 
+# adding in a GET to just dump locations_db for testing
+@app.get("/locations/", response_model=List[GridLocation])
+async def get_locations():
+    """
+    Dumps JSON of locations_db.
+
+    Example: `/locations/`
+    """
+    return locations_db
+
 @app.get("/find_closest_location_on_grid/", response_model=ClosestLocationResponse)
 async def find_closest_location_on_grid(
     x: int = Query(..., ge=0, le=99, description="Your X coordinate on the grid (0-99)."),
