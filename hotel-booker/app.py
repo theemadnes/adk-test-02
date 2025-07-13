@@ -46,6 +46,6 @@ async def get_all_bookings():
     return list(bookings_db.values())
 
 # healthz endpoint
-@app.get("/healthz/")
+@app.get("/healthz/", response_model=HealthResponse)
 async def healthz():
     return HealthResponse()

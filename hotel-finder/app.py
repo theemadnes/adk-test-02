@@ -45,7 +45,7 @@ def euclidean_distance(coord1: Tuple[int, int], coord2: Tuple[int, int]) -> floa
     return math.sqrt((coord1[0] - coord2[0])**2 + (coord1[1] - coord2[1])**2)
 
 # healthz endpoint
-@app.get("/healthz/")
+@app.get("/healthz/", response_model=HealthResponse)
 async def healthz():
     return HealthResponse()
 
