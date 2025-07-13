@@ -13,6 +13,10 @@ class BookingCreate(BaseModel):
 class BookingRecord(BookingCreate):
     booking_id: uuid.UUID = Field(default_factory=uuid.uuid4)
 
+class HealthResponse(BaseModel):
+    status: str = "ok"
+    message: str = "Service is running."
+
 # --- In-memory Database ---
 # A simple dictionary to store bookings in memory
 bookings_db: Dict[uuid.UUID, BookingRecord] = {}
@@ -41,3 +45,7 @@ async def get_all_bookings():
     """
     return list(bookings_db.values())
 
+# healthz endpoint
+@app.get("/healthz/")
+async def healthz():
+    return HealthResponse()

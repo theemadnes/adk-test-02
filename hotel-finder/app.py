@@ -18,6 +18,10 @@ class ClosestLocationResponse(BaseModel):
     closest_location: GridLocation
     distance: float = Field(..., description="Euclidean distance to the closest location.")
 
+class HealthResponse(BaseModel):
+    status: str = "ok"
+    message: str = "Service is running."
+
 app = FastAPI(
     title="Closest Location API (Grid)",
     description="Finds the closest named location on a 100x100 grid (0-99 for x and y) to the given input (x, y) coordinates.",
@@ -39,6 +43,11 @@ locations_db: List[GridLocation] = [
 def euclidean_distance(coord1: Tuple[int, int], coord2: Tuple[int, int]) -> float:
     """Calculates the Euclidean distance between two grid coordinates."""
     return math.sqrt((coord1[0] - coord2[0])**2 + (coord1[1] - coord2[1])**2)
+
+# healthz endpoint
+@app.get("/healthz/")
+async def healthz():
+    return HealthResponse()
 
 # adding in a GET to just dump locations_db for testing
 @app.get("/locations/", response_model=List[GridLocation])
